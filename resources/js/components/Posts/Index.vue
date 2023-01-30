@@ -1,33 +1,42 @@
 <template>
-    <table class="border-collapse border border-slate-400 ...">
-  <thead>
-    <tr>
-      <th class="border border-slate-300 ...">State</th>
-      <th class="border border-slate-300 ...">City</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="border border-slate-300 ...">Indiana</td>
-      <td class="border border-slate-300 ...">Indianapolis</td>
-    </tr>
-    <tr>
-      <td class="border border-slate-300 ...">Ohio</td>
-      <td class="border border-slate-300 ...">Columbus</td>
-    </tr>
-    <tr>
-      <td class="border border-slate-300 ...">Michigan</td>
-      <td class="border border-slate-300 ...">Detroit</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
-  <div class="shrink-0">
-  </div>
-  <div>
-    <div class="text-xl font-medium text-black">ChitChat</div>
-    <p class="text-slate-500">You have a new message!</p>
-  </div>
-</div>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th>SL</th>
+        <th>Title</th>
+        <th>Post</th>
+        <th>Created at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="post in posts">
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.content }}</td>
+        <td>{{ post.created_at }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
+
+<script>
+
+export default {
+  data() {
+    return {
+      posts : []
+    }
+  },
+  mounted() {
+    this.fetchPosts()
+  },
+  methods : {
+    fetchPosts() {
+      axios.get('/api/posts')
+      .then(response => this.posts = response.data)
+      .catch(error => console.log(error))
+    }
+  }
+}
+
+</script>
