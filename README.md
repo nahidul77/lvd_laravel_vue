@@ -1,8 +1,3 @@
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-
 Please follow the instructions
 
 Server Requirements: Php server & CLI version >= 7
