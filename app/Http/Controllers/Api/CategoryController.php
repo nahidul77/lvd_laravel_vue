@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
+use App\Http\Requests\CategoryStoreRequest;
 
 class CategoryController extends Controller
 {
@@ -21,7 +22,7 @@ class CategoryController extends Controller
         return new CategoryResource($category);
     }
 
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
         $category = Category::create($request->all());
 
