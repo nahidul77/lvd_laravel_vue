@@ -28,4 +28,11 @@ class CategoryController extends Controller
 
         return new CategoryResource($category);
     }
+
+    public function update(Category $category, CategoryStoreRequest $request)
+    {
+        $category->update($request->all());
+
+        return new CategoryResource($category);
+    }
 }
