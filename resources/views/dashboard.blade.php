@@ -10,7 +10,6 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6  text-gray-900">
                     <posts-index></posts-index>
-                    <posts-compose></posts-compose>
                 </div>
             </div>
         </div>

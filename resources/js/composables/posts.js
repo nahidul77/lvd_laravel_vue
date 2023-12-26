@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Ref } from "vue";
+import { ref } from "vue";
 
 export default function usePosts() {
 
@@ -8,7 +8,7 @@ export default function usePosts() {
     const getPosts = async () => {
         axios.get('/api/posts')
         .then(response => {
-            this.posts = response.data;
+            posts.value = response.data;
         })
     }
     return {posts, getPosts}
